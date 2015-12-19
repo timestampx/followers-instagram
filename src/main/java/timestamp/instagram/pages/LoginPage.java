@@ -11,20 +11,20 @@ import org.openqa.selenium.support.FindBy;
  * 
  * @author timestamp
  */
-@DefaultUrl("https://instagram.com/")
+@DefaultUrl("https://www.instagram.com/accounts/login/")
 public class LoginPage extends MainPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
     
-    String loginPageSelector = ".-cx-PRIVATE-LandingActionsColumn__box";
+    String loginPageSelector = ".f29";
     
     @FindBy(css = "[name='username']")
     public WebElement usernameField;    
     @FindBy(css = "[name='password']")
     public WebElement passwordField;
-    @FindBy(css = ".-cx-PRIVATE-SlimLoginForm__button")
+    @FindBy(css = "[class='p69 w38 b48 e48 h48']")
     public WebElement loginButton;
     
     /**

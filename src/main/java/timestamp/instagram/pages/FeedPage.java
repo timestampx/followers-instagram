@@ -16,13 +16,13 @@ public class FeedPage extends MainPage {
         super(driver);
     }
 
-    String likeButton = ".//*[@id='react-root']//article[%d]//section/a";
-    String feedListElement = ".-cx-PRIVATE-FeedPage__root";
+    String likeButton = ".//*[@id='react-root']//article[%d]//*[@role='button']";
+    String feedListElement = ".y18";
     String searchResultElement = ".-cx-PRIVATE-Search__result:nth-of-type(%d) .-cx-PRIVATE-Search__resultLink";
 
     @FindBy(css = ".-cx-PRIVATE-FeedPage__root")
     public WebElement feedsListElement;
-    @FindBy(css = ".-cx-PRIVATE-AutoloadingPostsGrid__moreLink")
+    @FindBy(css = ".i09")
     public WebElement moreLinkButton;
     @FindBy(css = ".-cx-PRIVATE-SearchBox__inactiveLabel")
     public WebElement searchFieldElement;
@@ -85,15 +85,16 @@ public class FeedPage extends MainPage {
         moreLinkButtonIsPresent();
         clickMoreLinkButton();
         int j = 0;
+        int timeout = (int) (Math.random()*5000+36000);
         for (int i = 13; i <= 96; i++) {
             likeButtonByIndexFeedIsPresent(i);
             clickLikeByIndexFeed(i);
-            waitABit((int) (Math.random()*5000+36000));
+            waitABit(5000);
             j++;
-            if (j > 12) {
-                j = 0;
-                scrollPageDown();
-            }
+//            if (j > 12) {
+//                j = 0;
+//                scrollPageDown();
+//            }
         }
     }
 

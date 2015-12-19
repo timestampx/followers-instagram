@@ -15,11 +15,11 @@ public class PostPage extends  MainPage{
         super(driver);
     }
     
-    @FindBy(css = ".-cx-PRIVATE-Post__root")
+    @FindBy(css = ".y09")
     public WebElement postHeader;
-    @FindBy(css = ".-cx-PRIVATE-PostInfo__likeButton")
+    @FindBy(css = ".w59.h99.u77")
     public WebElement likeButton;
-    @FindBy(css = ".-cx-PRIVATE-PostModalConsumer__rightArrow")
+    @FindBy(css = ".coreSpriteRightPaginationArrow")
     public WebElement rightArrow;    
     
     /**

@@ -15,7 +15,7 @@ public class TagsPage extends MainPage {
         super(driver);
     }
     
-    String postInfo = ".//*[@class='-cx-PRIVATE-PostsGrid__row'][1]/a[%d]";
+    String postInfo = "[data-reactid='.0.1.0.1:$topSection/=1$topPosts/=010.1'] [data-reactid='.0.1.0.1:$topSection/=1$topPosts/=010.1.$0'] a:nth-of-type(%d)";
     
     @FindBy(css = "-cx-PRIVATE-TagPage__tagName")
     public WebElement tagNameElement;    
