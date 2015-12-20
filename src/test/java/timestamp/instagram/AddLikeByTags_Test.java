@@ -24,8 +24,8 @@ public class AddLikeByTags_Test extends BaseTestClass {
         loginPage.open();
         Assert.assertTrue("Страница авторизации не отображается",
                 loginPage.loginPageIsPresent());
-        loginPage.setLogin("login");
-        loginPage.setPassword("password");
+        loginPage.setLogin(Config.getLogin());
+        loginPage.setPassword(Config.getPassword());
         loginPage.clickLogin();
 
         // Проверяем отображение новостей
