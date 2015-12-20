@@ -1,5 +1,6 @@
 package timestamp.instagram;
 
+import net.thucydides.core.annotations.Pending;
 import timestamp.instagram.pages.LoginPage;
 import timestamp.instagram.pages.FeedPage;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ import org.junit.Test;
 public class AddLikeByFollows_Test extends BaseTestClass {
 
     @Test
+    @Pending
     public void add_like_follows() {
 
         LoginPage loginPage = new LoginPage(driver);
