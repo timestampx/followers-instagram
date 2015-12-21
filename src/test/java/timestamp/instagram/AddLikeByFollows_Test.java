@@ -23,9 +23,6 @@ public class AddLikeByFollows_Test extends BaseTestClass {
         Assert.assertTrue("Страница авторизации не отображается",
                 loginPage.loginPageIsPresent());
         
-
- 
-        
         loginPage.setLogin(Config.getLogin());
         loginPage.setPassword(Config.getPassword());
         loginPage.clickLogin();

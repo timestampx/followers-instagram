@@ -50,12 +50,12 @@ public class AddLikeByTags_Test extends BaseTestClass {
         int i = 1;
         int j = (int) (random()*20+60);
         int timeout = (int) (Math.random()*5000+36000);
-        while (i < 5) {
+        while (i < j) {
             i = i + 1;
 
             // Ставим лайк
             postPage.likeButtonIsPresent();
-            postPage.clicklikeButton(5000);
+            postPage.clicklikeButton(timeout);
             postPage.postHeaderIsPresent();
 
             // Переходим далее
