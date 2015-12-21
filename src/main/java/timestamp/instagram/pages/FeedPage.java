@@ -89,12 +89,12 @@ public class FeedPage extends MainPage {
         for (int i = 13; i <= 96; i++) {
             likeButtonByIndexFeedIsPresent(i);
             clickLikeByIndexFeed(i);
-            waitABit(5000);
+            waitABit(timeout);
             j++;
-//            if (j > 12) {
-//                j = 0;
-//                scrollPageDown();
-//            }
+            if (j > 12) {
+                j = 0;
+                scrollPageDown();
+            }
         }
     }
 
