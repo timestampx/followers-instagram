@@ -17,7 +17,7 @@ public class PostPage extends  MainPage{
     
     @FindBy(css = ".y09")
     public WebElement postHeader;
-    @FindBy(css = ".coreSpriteHeartOpen")
+    @FindBy(css = "[data-reactid='.1.1.0.0.2.2.0']")
     public WebElement likeButton;
     @FindBy(css = ".coreSpriteRightPaginationArrow")
     public WebElement rightArrow;    
