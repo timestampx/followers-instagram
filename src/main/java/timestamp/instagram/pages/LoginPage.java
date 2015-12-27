@@ -18,13 +18,13 @@ public class LoginPage extends MainPage {
         super(driver);
     }
     
-    String loginPageSelector = ".f29";
+    String loginPageSelector = "#react-root";
     
     @FindBy(css = "[name='username']")
     public WebElement usernameField;    
     @FindBy(css = "[name='password']")
     public WebElement passwordField;
-    @FindBy(css = "[class='p69 w38 b48 e48 h48']")
+    @FindBy(css = "._rz1lq")
     public WebElement loginButton;
     
     /**

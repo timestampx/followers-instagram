@@ -17,12 +17,12 @@ public class FeedPage extends MainPage {
     }
 
     String likeButton = ".//*[@id='react-root']//article[%d]//*[@role='button']";
-    String feedListElement = ".y18";
+    String feedListElement = "[data-reactid='.0.1']";
     String searchResultElement = ".-cx-PRIVATE-Search__result:nth-of-type(%d) .-cx-PRIVATE-Search__resultLink";
 
     @FindBy(css = ".-cx-PRIVATE-FeedPage__root")
     public WebElement feedsListElement;
-    @FindBy(css = ".i09")
+    @FindBy(css = "[data-reactid='.0.1.0.1.2.0']")
     public WebElement moreLinkButton;
     @FindBy(css = ".-cx-PRIVATE-SearchBox__inactiveLabel")
     public WebElement searchFieldElement;
@@ -91,10 +91,10 @@ public class FeedPage extends MainPage {
             clickLikeByIndexFeed(i);
             waitABit(timeout);
             j++;
-            if (j > 12) {
-                j = 0;
-                scrollPageDown();
-            }
+//            if (j > 12) {
+//                j = 0;
+//                scrollPageDown();
+//            }
         }
     }
 
