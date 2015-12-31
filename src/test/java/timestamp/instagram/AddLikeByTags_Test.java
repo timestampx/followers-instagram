@@ -35,7 +35,7 @@ public class AddLikeByTags_Test extends BaseTestClass {
 
         // Открываем страницу по тегу
         TagsPage tagsPage = new TagsPage(driver);
-        tagsPage.openAt("https://instagram.com/explore/tags/наращиваниересниц");
+        tagsPage.openAt("https://instagram.com/explore/tags/наращивание");
         tagsPage.tagsPageIsPresent();
 
         // Открываем первый пост
