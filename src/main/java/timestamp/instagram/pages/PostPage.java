@@ -20,7 +20,9 @@ public class PostPage extends  MainPage{
     @FindBy(css = "[data-reactid='.1.1.0.0.2.2.0']")
     public WebElement likeButton;
     @FindBy(css = ".coreSpriteRightPaginationArrow")
-    public WebElement rightArrow;    
+    public WebElement rightArrow;
+    @FindBy(css = "[data-reactid='.1.1.0.0.0.2.0']")
+    public WebElement followButton;   
     
     /**
      * Проверяем, что страница поста отрылась
@@ -45,8 +47,27 @@ public class PostPage extends  MainPage{
      * 
      * @param timeout
      */
-    public void clicklikeButton(int timeout) {
+    public void clickLikeButton(int timeout) {
         likeButton.click();
+        waitTimeout(timeout);
+    }
+    
+    /**
+     * Проверяем, что Подписка отображается
+     *
+     * @return boolean
+     */
+    public boolean followButtonIsPresent() {
+        return waitForElementPresent(followButton);
+    }
+    
+    /**
+     * Нажимаем Подписку с заданным периодом
+     * 
+     * @param timeout
+     */
+    public void clickFollowButton(int timeout) {
+        followButton.click();
         waitTimeout(timeout);
     }
     

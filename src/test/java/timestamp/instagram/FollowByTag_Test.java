@@ -1,22 +1,21 @@
 package timestamp.instagram;
 
 import static java.lang.Math.random;
+import org.junit.Assert;
+import org.junit.Test;
 import timestamp.instagram.pages.FeedPage;
 import timestamp.instagram.pages.LoginPage;
 import timestamp.instagram.pages.PostPage;
 import timestamp.instagram.pages.TagsPage;
-import org.junit.Assert;
-import org.junit.Test;
 
 /**
- * Добавляет лайки новостям по тегам
- *
- * @author timestamp
+ * Подписка по тегу
+ * @author Natalya Seregina <n.seregina@corp.mail.ru>
  */
-public class AddLikeByTags_Test extends BaseTestClass {
-
+public class FollowByTag_Test extends BaseTestClass {
+    
     @Test
-    public void add_like_by_tags() {
+    public void follow_by_tag() {
 
         LoginPage loginPage = new LoginPage(driver);
 
@@ -44,18 +43,20 @@ public class AddLikeByTags_Test extends BaseTestClass {
         PostPage postPage = new PostPage(driver);
         postPage.postHeaderIsPresent();
 
-        /* В цикле ставим лайки рандомному кол-ву постов (от 60 до 80)
+        /* В цикле подписываемся под рандомным кол-вом постов (от 60 до 80)
         * чтобы не попасть под фильтр бана
         */
         int i = 1;
-        int j = (int) (random()*20+60);
+        int j = (int) (random()*20+20);
         int timeout = (int) (Math.random()*5000+36000);
         while (i < j) {
             i = i + 1;
 
-            // Ставим лайк
-            postPage.likeButtonIsPresent();
-            postPage.clickLikeButton(timeout);
+            // Подписываемся и отписываемся
+            postPage.followButtonIsPresent();
+            postPage.clickFollowButton(timeout);
+            postPage.followButtonIsPresent();
+            postPage.clickFollowButton(timeout);
             postPage.postHeaderIsPresent();
 
             // Переходим далее
@@ -63,4 +64,5 @@ public class AddLikeByTags_Test extends BaseTestClass {
             postPage.postHeaderIsPresent();
         }
     }
+
 }
