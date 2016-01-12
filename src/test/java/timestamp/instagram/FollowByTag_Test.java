@@ -34,7 +34,7 @@ public class FollowByTag_Test extends BaseTestClass {
 
         // Открываем страницу по тегу
         TagsPage tagsPage = new TagsPage(driver);
-        tagsPage.openAt("https://instagram.com/explore/tags/наращивание");
+        tagsPage.openAt("https://instagram.com/explore/tags/нижнийновгород");
         tagsPage.tagsPageIsPresent();
 
         // Открываем первый пост
@@ -52,9 +52,7 @@ public class FollowByTag_Test extends BaseTestClass {
         while (i < j) {
             i = i + 1;
 
-            // Подписываемся и отписываемся
-            postPage.followButtonIsPresent();
-            postPage.clickFollowButton(timeout);
+            // Подписываемся
             postPage.followButtonIsPresent();
             postPage.clickFollowButton(timeout);
             postPage.postHeaderIsPresent();
