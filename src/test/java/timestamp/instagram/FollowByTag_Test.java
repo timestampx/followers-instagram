@@ -34,7 +34,7 @@ public class FollowByTag_Test extends BaseTestClass {
 
         // Открываем страницу по тегу
         TagsPage tagsPage = new TagsPage(driver);
-        tagsPage.openAt("https://instagram.com/explore/tags/лоскутноешитье");
+        tagsPage.openAt("https://instagram.com/explore/tags/ткани");
         tagsPage.tagsPageIsPresent();
 
         // Открываем первый пост
