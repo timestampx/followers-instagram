@@ -18,14 +18,14 @@ public class LoginPage extends MainPage {
         super(driver);
     }
     
-    String loginPageSelector = "#react-root";
-    
     @FindBy(css = "[name='username']")
     public WebElement usernameField;    
     @FindBy(css = "[name='password']")
     public WebElement passwordField;
     @FindBy(css = "._rz1lq")
     public WebElement loginButton;
+    @FindBy(css = "#react-root")
+    public WebElement loginPageSelector;
     
     /**
      * Проверяем, что страница авторизации отрылась
@@ -33,7 +33,7 @@ public class LoginPage extends MainPage {
      * @return boolean
      */
     public boolean loginPageIsPresent() {
-        return waitForElementPresent(By.cssSelector(loginPageSelector));
+        return waitForElementPresent(loginPageSelector);
     }
     
     /**

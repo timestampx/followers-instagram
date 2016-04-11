@@ -15,9 +15,9 @@ public class PostPage extends  MainPage{
         super(driver);
     }
     
-    @FindBy(css = ".y09")
+    @FindBy(css = "._ovg3g")
     public WebElement postHeader;
-    @FindBy(css = "[data-reactid='.1.1.0.0.2.2.0']")
+    @FindBy(xpath = "//*[contains(@class,'coreSpriteHeart')]")
     public WebElement likeButton;
     @FindBy(css = ".coreSpriteRightPaginationArrow")
     public WebElement rightArrow;

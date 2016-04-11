@@ -36,31 +36,37 @@ public class AddLikeByTags_Test extends BaseTestClass {
         // Открываем страницу по тегу
         TagsPage tagsPage = new TagsPage(driver);
         tagsPage.openAt("https://instagram.com/explore/tags/handmade");
-        tagsPage.tagsPageIsPresent();
+        Assert.assertTrue("Страница новостей не отображается",
+                tagsPage.tagsPageIsPresent());
 
         // Открываем первый пост
         tagsPage.clickPostByIndex(1);
 
         PostPage postPage = new PostPage(driver);
-        postPage.postHeaderIsPresent();
+        Assert.assertTrue("Страница поста не отображается",
+                postPage.postHeaderIsPresent());
 
-        /* В цикле ставим лайки рандомному кол-ву постов (от 60 до 80)
-        * чтобы не попасть под фильтр бана
-        */
+        /*
+         * В цикле ставим лайки рандомному кол-ву постов (от 60 до 80)
+         * чтобы не попасть под фильтр бана
+         */
         int i = 1;
-        int j = (int) (random()*20+60);
-        int timeout = (int) (Math.random()*5000+36000);
+        int j = (int) (random() * 20 + 60);
+        int timeout = (int) (Math.random() * 5000 + 36000);
         while (i < j) {
             i = i + 1;
 
             // Ставим лайк
-            postPage.likeButtonIsPresent();
+            Assert.assertTrue("Сердечко не отображается",
+            postPage.likeButtonIsPresent());
             postPage.clickLikeButton(timeout);
-            postPage.postHeaderIsPresent();
+            Assert.assertTrue("Страница поста не отображается",
+                    postPage.postHeaderIsPresent());
 
             // Переходим далее
             postPage.clickRightArrowButton();
-            postPage.postHeaderIsPresent();
+            Assert.assertTrue("Страница поста не отображается",
+                    postPage.postHeaderIsPresent());
         }
     }
 }

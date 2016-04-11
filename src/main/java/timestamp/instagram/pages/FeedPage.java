@@ -17,7 +17,6 @@ public class FeedPage extends MainPage {
     }
 
     String likeButton = ".//*[@id='react-root']//article[%d]//*[@role='button']";
-    String feedListElement = "[data-reactid='.0.1']";
     String searchResultElement = ".-cx-PRIVATE-Search__result:nth-of-type(%d) .-cx-PRIVATE-Search__resultLink";
 
     @FindBy(css = ".-cx-PRIVATE-FeedPage__root")
@@ -26,6 +25,8 @@ public class FeedPage extends MainPage {
     public WebElement moreLinkButton;
     @FindBy(css = ".-cx-PRIVATE-SearchBox__inactiveLabel")
     public WebElement searchFieldElement;
+    @FindBy(css = "[data-reactid='.0.1']")
+    public WebElement feedListElement;
 
     /**
      * Проверяем, что страница новостей отрылась
@@ -33,7 +34,7 @@ public class FeedPage extends MainPage {
      * @return boolean
      */
     public boolean feedPageIsPresent() {
-        return waitForElementPresent(By.cssSelector(feedListElement));
+        return waitForElementPresent(feedListElement);
     }
 
     /**
@@ -77,7 +78,7 @@ public class FeedPage extends MainPage {
      * Нажимаем Like на новостях c периодом подгрузки в 12 новостей
      * подходит под ограничение 100 лайков в час (от 36 секунд между лайками)
      */
-    public void clickLikeAllFeed() {
+    public void clickLikeAllFeedWithMoreLink() {
         for (int i = 1; i <= 12; i++) {
             likeButtonByIndexFeedIsPresent(i);
             clickLikeByIndexFeed(i);
@@ -91,10 +92,28 @@ public class FeedPage extends MainPage {
             clickLikeByIndexFeed(i);
             waitABit(timeout);
             j++;
-//            if (j > 12) {
-//                j = 0;
-//                scrollPageDown();
-//            }
+            if (j > 12) {
+                j = 0;
+                scrollPageDown();
+            }
+        }
+    }
+    
+    /**
+     * Нажимаем Like на новостях
+     * подходит под ограничение 100 лайков в час (от 36 секунд между лайками)
+     */
+    public void clickLikeAllFeedWithoutMoreLink() {
+        for (int i = 1; i <= 12; i++) {
+            likeButtonByIndexFeedIsPresent(i);
+            clickLikeByIndexFeed(i);
+        }
+        waitABit(5000);
+        int timeout = (int) (Math.random()*5000+36000);
+        for (int i = 13; i <= 96; i++) {
+            likeButtonByIndexFeedIsPresent(i);
+            clickLikeByIndexFeed(i);
+            waitABit(timeout);
         }
     }
 

@@ -35,13 +35,15 @@ public class FollowByTag_Test extends BaseTestClass {
         // Открываем страницу по тегу
         TagsPage tagsPage = new TagsPage(driver);
         tagsPage.openAt("https://instagram.com/explore/tags/ткани");
-        tagsPage.tagsPageIsPresent();
+         Assert.assertTrue("Страница Новостей не отображается",
+        tagsPage.tagsPageIsPresent());
 
         // Открываем первый пост
         tagsPage.clickPostByIndex(1);
 
         PostPage postPage = new PostPage(driver);
-        postPage.postHeaderIsPresent();
+        Assert.assertTrue("Страница поста не отображается",
+                postPage.postHeaderIsPresent());
 
         /* В цикле подписываемся под рандомным кол-вом постов (от 60 до 80)
         * чтобы не попасть под фильтр бана
@@ -53,13 +55,16 @@ public class FollowByTag_Test extends BaseTestClass {
             i = i + 1;
 
             // Подписываемся
-            postPage.followButtonIsPresent();
+            Assert.assertTrue("Кнопка Подписка не отображается",
+            postPage.followButtonIsPresent());
             postPage.clickFollowButton(timeout);
-            postPage.postHeaderIsPresent();
+            Assert.assertTrue("Страница поста не отображается",
+                postPage.postHeaderIsPresent());
 
             // Переходим далее
             postPage.clickRightArrowButton();
-            postPage.postHeaderIsPresent();
+            Assert.assertTrue("Страница поста не отображается",
+                postPage.postHeaderIsPresent());
         }
     }
 
