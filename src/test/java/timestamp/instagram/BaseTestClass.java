@@ -49,7 +49,7 @@ public class BaseTestClass {
      */
     @Before
     public void setUp() {
-        switch (System.getProperty("webdriver.driver", "firefox")) {
+        switch (System.getProperty("webdriver.driver", "chrome")) {
             case "chrome":
                 driver = new ChromeDriver();
                 break;
